@@ -3,7 +3,7 @@ import {
   Search,
   MessageSquare,
   FileText,
-  BookOpen,
+  
   Menu,
   X,
   LayoutDashboard,
@@ -15,15 +15,12 @@ import {
   Plus,
   Folder,
   File,
-  MoreVertical,
+  
   Users,
   TrendingUp,
-  Calendar,
-  Github,
-  Twitter,
-  Linkedin,
+  
   AlertCircle,
-  LogOut,
+  
   RefreshCw,
   Eye,
   Edit,
@@ -213,7 +210,6 @@ const ResearchHubDashboard: React.FC = () => {
   const handleDeleteWorkspace = async () => {
     if (!selectedWorkspace) return;
 
-    const deleteToast = toast.loading('Deleting workspace...', { id: 'deleting-workspace' });
 
     try {
       const token = localStorage.getItem("token");

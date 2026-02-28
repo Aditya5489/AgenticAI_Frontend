@@ -1,4 +1,3 @@
-// components/authModal.tsx
 import React, { useState } from 'react';
 import { 
   Atom, 
@@ -126,12 +125,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
     setIsLoading(true);
     setErrors({});
 
-    // Show loading toast
-    const loadingToast = toast.loading(
-      mode === 'login' ? 'Signing in...' : 'Creating your account...', 
-      { id: 'auth-loading' }
-    );
-
+   
     try {
       if (mode === 'signup') {
         // Signup request
@@ -291,7 +285,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
         {/* Error Message - Keep this for inline errors */}
         {errors.general && (
           <div className="mx-6 mt-4 p-3 bg-red-900/50 border border-red-700 rounded-lg flex items-start space-x-2">
-            <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
             <p className="text-sm text-red-200">{errors.general}</p>
           </div>
         )}

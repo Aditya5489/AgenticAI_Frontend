@@ -253,7 +253,7 @@ const ResearchHubLanding: React.FC = () => {
           )}
         </header>
 
-        <section className="bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800">
+        <section className="bg-linear-to-br from-gray-800 via-gray-900 to-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
             <div className="text-center max-w-5xl mx-auto">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -333,7 +333,7 @@ const ResearchHubLanding: React.FC = () => {
                 <div className="space-y-4">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-6 h-6 text-green-400 shrink-0 mt-0.5" />
                       <span className="text-lg text-gray-300">{benefit}</span>
                     </div>
                   ))}

@@ -3,7 +3,7 @@ import {
   Search, 
   MessageSquare, 
   FileText, 
-  BookOpen, 
+
   Menu,
   X,
   LayoutDashboard,
@@ -150,7 +150,6 @@ const ResearchHubUploadPDF: React.FC = () => {
     setError(null);
     setUploadedFile(file);
 
-    const uploadToast = toast.loading('Uploading PDF...', { id: 'uploading' });
 
     const formData = new FormData();
     formData.append('file', file);
@@ -553,7 +552,7 @@ const ResearchHubUploadPDF: React.FC = () => {
 
                     {saveToWorkspace && (
                       <div className="flex items-center space-x-2 text-sm text-green-400 bg-green-500/10 p-3 rounded-lg">
-                        <CheckCircle className="w-4 h-4 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 shrink-0" />
                         <span>Paper will be saved to your workspace</span>
                       </div>
                     )}
@@ -565,15 +564,15 @@ const ResearchHubUploadPDF: React.FC = () => {
                   <h4 className="text-sm font-medium text-white mb-3">Tips:</h4>
                   <ul className="space-y-2 text-xs text-gray-400">
                     <li className="flex items-start space-x-2">
-                      <CheckCircle className="w-3 h-3 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-3 h-3 text-purple-400 mt-0.5 shrink-0" />
                       <span>PDF files are automatically processed for text extraction</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <CheckCircle className="w-3 h-3 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-3 h-3 text-purple-400 mt-0.5 shrink-0" />
                       <span>Extracted text can be used with AI tools for analysis</span>
                     </li>
                     <li className="flex items-start space-x-2">
-                      <CheckCircle className="w-3 h-3 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-3 h-3 text-purple-400 mt-0.5 shrink-0" />
                       <span>Save to workspace to organize with other papers</span>
                     </li>
                   </ul>
@@ -602,7 +601,7 @@ const ResearchHubUploadPDF: React.FC = () => {
                 </div>
 
                 {extractedText ? (
-                  <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700 max-h-[500px] overflow-y-auto">
+                  <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700 max-h-125overflow-y-auto">
                     <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
                       {extractedText}
                     </p>

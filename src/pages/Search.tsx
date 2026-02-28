@@ -15,12 +15,12 @@ import {
   Filter,
   Calendar,
   User,
-  ExternalLink,
+  
   Download,
   Bookmark,
   ChevronDown,
   Globe,
-  Clock,
+  
   Star,
   Github,
   Twitter,
@@ -28,7 +28,7 @@ import {
   AlertCircle,
   Loader
 } from 'lucide-react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 interface SearchResult {
@@ -48,7 +48,6 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const ResearchHubSearch: React.FC = () => {
-  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('agentic ai');
@@ -104,7 +103,6 @@ const ResearchHubSearch: React.FC = () => {
     setLoading(true);
     setError(null);
     
-    const searchToast = toast.loading('Searching papers...', { id: 'searching' });
 
     try {
       const token = localStorage.getItem("token");
@@ -156,7 +154,6 @@ const ResearchHubSearch: React.FC = () => {
     if (!selectedPaper) return;
 
     setImporting(true);
-    const importToast = toast.loading('Importing paper...', { id: 'importing' });
 
     try {
       const token = localStorage.getItem("token");
@@ -420,7 +417,7 @@ const ResearchHubSearch: React.FC = () => {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="relative min-w-[180px]">
+                <div className="relative min-w-45">
                   <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
                   <select
                     value={selectedSource}

@@ -2,22 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import {
   ArrowLeft,
-  Download,
-  Share2,
+  
   Edit,
   Trash2,
   Clock,
-  User,
+  
   FileText,
-  TrendingUp,
-  BookOpen,
+  
   Sparkles,
-  Calendar,
-  Layers,
-  Copy,
+  
   Check,
   AlertCircle,
-  Loader,
+  
   Atom,
   Home,
   LayoutDashboard,
@@ -31,22 +27,18 @@ import {
   Github,
   Twitter,
   Linkedin,
-  Zap,
-  Folder,
-  File,
+  
   Plus,
   MoreVertical,
   Eye,
   RefreshCw,
   Grid,
   List,
-  SortAsc,
+  
   Filter,
-  Paperclip,
+  
   Users,
-  Tag,
-  Clock3,
-  Settings,
+ 
   Star,
   StarOff
 } from 'lucide-react';
@@ -304,17 +296,7 @@ const WorkspaceView: React.FC = () => {
     }
   };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffMs = now.getTime() - date.getTime();
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-    if (diffDays === 0) return 'Today';
-    if (diffDays === 1) return 'Yesterday';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  };
 
   const getColorClasses = (color: string) => {
     const colors: Record<string, string> = {
@@ -818,7 +800,7 @@ const StatCard = ({ icon, label, value, color }: { icon: React.ReactNode; label:
 };
 
 // Paper Grid Card Component
-const PaperGridCard = ({ paper, workspaceId, onToggleStar, onDelete, parseTags }: any) => {
+const PaperGridCard = ({ paper,  onToggleStar, onDelete, parseTags }: any) => {
   const tags = parseTags(paper.tags);
   
   return (
@@ -903,8 +885,7 @@ const PaperGridCard = ({ paper, workspaceId, onToggleStar, onDelete, parseTags }
 };
 
 // Paper List Row Component
-const PaperListRow = ({ paper, workspaceId, onToggleStar, onDelete, parseTags }: any) => {
-  const tags = parseTags(paper.tags);
+const PaperListRow = ({ paper, onToggleStar, onDelete, }: any) => {
   
   return (
     <tr className="hover:bg-gray-700/50 transition-colors">

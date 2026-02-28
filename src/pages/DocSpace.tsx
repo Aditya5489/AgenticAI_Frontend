@@ -3,7 +3,7 @@ import {
   Search, 
   MessageSquare, 
   FileText, 
-  BookOpen, 
+  
   Menu,
   X,
   LayoutDashboard,
@@ -13,16 +13,15 @@ import {
   ChevronRight,
   Atom,
   Plus,
-  File,
+  
   Folder,
-  MoreVertical,
-  Edit,
+ 
   Trash2,
   Download,
   Share2,
   Star,
   Clock,
-  User,
+
   Github,
   Twitter,
   Linkedin,
@@ -129,7 +128,7 @@ const ResearchHubDocSpace: React.FC = () => {
   };
 
   const createNewDocument = async () => {
-    const createToast = toast.loading('Creating new document...', { id: 'create-doc' });
+   
     
     try {
       const token = localStorage.getItem("token");
@@ -173,7 +172,6 @@ const ResearchHubDocSpace: React.FC = () => {
     if (!selectedDoc) return;
 
     setSaving(true);
-    const saveToast = toast.loading('Saving document...', { id: 'save-doc' });
     
     try {
       const token = localStorage.getItem("token");
@@ -214,10 +212,7 @@ const ResearchHubDocSpace: React.FC = () => {
   };
 
   const toggleStar = async (doc: Document) => {
-    const starToast = toast.loading(
-      doc.is_starred ? 'Removing from starred...' : 'Adding to starred...', 
-      { id: 'star-doc' }
-    );
+    
     
     try {
       const token = localStorage.getItem("token");
@@ -261,7 +256,6 @@ const ResearchHubDocSpace: React.FC = () => {
   const deleteDocument = async (id: number) => {
     if (!confirm('Are you sure you want to delete this document?')) return;
 
-    const deleteToast = toast.loading('Deleting document...', { id: 'delete-doc' });
     
     try {
       const token = localStorage.getItem("token");
@@ -555,7 +549,7 @@ const ResearchHubDocSpace: React.FC = () => {
                     </button>
                   </div>
                 ) : (
-                  <div className="space-y-1 max-h-[600px] overflow-y-auto">
+                  <div className="space-y-1 max-h-150 overflow-y-auto">
                     {filteredDocuments.map((doc) => (
                       <button
                         key={doc.id}
@@ -572,9 +566,9 @@ const ResearchHubDocSpace: React.FC = () => {
                       >
                         <div className="flex items-center space-x-3 min-w-0 flex-1">
                           {doc.document_type === 'folder' ? (
-                            <Folder className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                            <Folder className="w-4 h-4 text-yellow-500 shrink-0" />
                           ) : (
-                            <FileText className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                            <FileText className="w-4 h-4 text-purple-400 shrink-0" />
                           )}
                           <div className="text-left min-w-0">
                             <p className="text-sm text-white truncate">{doc.name}</p>
@@ -583,7 +577,7 @@ const ResearchHubDocSpace: React.FC = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center space-x-1 flex-shrink-0">
+                        <div className="flex items-center space-x-1 shrink-0">
                           {doc.is_starred && (
                             <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                           )}
@@ -682,12 +676,12 @@ const ResearchHubDocSpace: React.FC = () => {
                   </div>
 
                   {/* Editor Content */}
-                  <div className="p-4 min-h-[400px]">
+                  <div className="p-4 min-h-100">
                     <textarea
                       value={editorContent}
                       onChange={(e) => setEditorContent(e.target.value)}
                       onBlur={saveDocument}
-                      className="w-full h-full min-h-[350px] bg-transparent text-white focus:outline-none resize-none"
+                      className="w-full h-full min-h-87.5 bg-transparent text-white focus:outline-none resize-none"
                       placeholder="Start writing..."
                     />
                   </div>

@@ -5,7 +5,7 @@ import {
   Folder,
   Palette,
   Type,
-  FileText,
+  
   Check,
   AlertCircle,
   Loader,
@@ -72,7 +72,6 @@ const CreateNewWorkspace: React.FC<CreateNewWorkspaceProps> = ({
     setIsCreating(true);
     setError(null);
 
-    const createToast = toast.loading('Creating workspace...', { id: 'creating-workspace' });
 
     try {
       const token = localStorage.getItem('token');
@@ -257,7 +256,7 @@ const CreateNewWorkspace: React.FC<CreateNewWorkspaceProps> = ({
               {/* Error Message */}
               {error && (
                 <div className="flex items-center space-x-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
-                  <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
                   <span className="text-sm text-red-400">{error}</span>
                 </div>
               )}
@@ -265,7 +264,7 @@ const CreateNewWorkspace: React.FC<CreateNewWorkspaceProps> = ({
               {/* AI Suggestion */}
               <div className="p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
                 <div className="flex items-start space-x-3">
-                  <Sparkles className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <Sparkles className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-sm font-medium text-white mb-1">Pro Tip</h4>
                     <p className="text-xs text-gray-400">
