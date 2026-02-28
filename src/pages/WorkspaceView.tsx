@@ -136,6 +136,12 @@ const WorkspaceView: React.FC = () => {
     fetchWorkspaceData();
   }, [id]);
 
+  useEffect(() => {
+  if (import.meta.env.DEV && debugInfo) {
+    console.log("Workspace Debug Info:", debugInfo);
+  }
+}, [debugInfo]);
+
   const fetchWorkspaceData = async (showRefreshing = false) => {
     if (showRefreshing) setRefreshing(true);
     setDebugInfo('');
@@ -182,7 +188,6 @@ const WorkspaceView: React.FC = () => {
       console.log("Papers data received:", papersData);
       console.log("Papers count:", papersData.length);
       
-      // Log the structure of first paper if available
       if (papersData.length > 0) {
         console.log("First paper structure:", papersData[0]);
         setDebugInfo(`Found ${papersData.length} papers. First paper: ${JSON.stringify(papersData[0]).substring(0, 200)}...`);
@@ -190,15 +195,14 @@ const WorkspaceView: React.FC = () => {
         setDebugInfo('No papers found in response');
       }
 
-      // Enrich papers with additional data
       const enrichedPapers = papersData.map((paper: any) => {
-        // Parse authors
+       
         const authors = parseAuthors(paper.authors);
         
-        // Parse tags
+        
         const tags = parseTags(paper.tags);
         
-        // Check if paper has analyses
+       
         const hasAnalyses = paper.analyses && paper.analyses.length > 0;
         
         return {
@@ -215,7 +219,7 @@ const WorkspaceView: React.FC = () => {
       console.log("Enriched papers:", enrichedPapers);
       setPapers(enrichedPapers);
       
-      // Calculate stats
+      
       const analyzedCount = enrichedPapers.filter((p: Paper) => p.analyzed).length;
       const totalAnalyses = enrichedPapers.reduce((acc: number, p:Paper) => acc + (p.analyses?.length || 0), 0);
       
@@ -278,10 +282,9 @@ const WorkspaceView: React.FC = () => {
 
       if (!response.ok) throw new Error("Failed to remove paper");
 
-      // Remove paper from state
+      
       setPapers(prev => prev.filter(p => p.id !== paperId));
       
-      // Update stats
       if (stats) {
         const paper = papers.find(p => p.id === paperId);
         setStats({
